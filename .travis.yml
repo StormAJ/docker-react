@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t arwedstorm/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run arwedstorm/docker-react npm run test -- --coverage
